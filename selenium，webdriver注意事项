@@ -1,0 +1,14 @@
+#web浏览器地址需要放到path内，并且需要下载chrom驱动，放到环境变量内
+selenium操作chrome浏览器需要有ChromeDriver驱动来协助。
+什么是ChromeDriver？
+ChromeDriver是Chromium team开发维护的，它是实现WebDriver有线协议的一个单独的服务。ChromeDriver通过chrome的自动代理框架控制浏览器，ChromeDriver只与12.0.712.0以上版本的chrome浏览器兼容。
+那么要想selenium成功的操作chrome浏览器需要经历如下步骤：
+1、下载ChromeDriver驱动包（下载地址： http://chromedriver.storage.googleapis.com/index.html?path=2.7/
+注意阅读note.txt下载与自己所使用浏览器一致版本的驱动包。
+2、指定ChromeDriver所在位置，可以通过两种方法指定：
+1）通过配置ChromeDriver.exe位置到path环境变量实现。
+2）通过webdriver.chrome.driver.系统属性实现。实现代码如下：
+System.setProperty("webdriver.chrome.driver", "C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\Google\\Chrome\\Application\\chromedriver.exe");
+3、最后需要做的就是创建一个新的ChromeDriver的实例。
+WebDriver driver = new ChromeDriver();
+driver.get("http://www.baidu.com/");
